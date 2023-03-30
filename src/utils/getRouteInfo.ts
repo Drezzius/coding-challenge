@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const getRouteInfo = (startId, stopId) => {
+const getRouteInfo = (startId: string, stopId: string) => {
   const routeInfo = axios
     .get(
       `https://efastatic.vvs.de/umweltrechner/XML_TRIP_REQUEST2?
