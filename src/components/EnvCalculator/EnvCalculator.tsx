@@ -36,7 +36,7 @@ const EnvCalculator = () => {
   }, [stopLocation]);
 
   const handleSubmit = async (start: Location, stop: Location) => {
-    console.log(stop);
+    getRouteInfo(start.id, stop.id);
   };
 
   return (
