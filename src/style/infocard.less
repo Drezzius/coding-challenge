@@ -1,0 +1,47 @@
+@import "./global.less";
+
+.infocard {
+  height: 100px;
+  width: 160px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+
+  .inner {
+    padding: 15px;
+  }
+
+  &:nth-of-type(odd) {
+    background: white;
+    .subtext {
+      color: @color-vvs-grey;
+    }
+  }
+  &:nth-of-type(even) {
+    background: @color-vvs-orange;
+
+    p {
+      color: white;
+    }
+  }
+
+  .title {
+    .copy-2();
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .maintext {
+    .title();
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+
+  .subtext {
+    .copy-2();
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+}

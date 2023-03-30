@@ -1,6 +1,6 @@
 import React from "react";
 
-const HamburgerMenu = (props) => (
+const IconHamburgerMenu = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     width="auto"
     height="34px"
@@ -15,4 +15,4 @@ const HamburgerMenu = (props) => (
   </svg>
 );
 
-export default HamburgerMenu;
+export default IconHamburgerMenu;

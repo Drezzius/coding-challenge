@@ -2,7 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: false,
+    node: true,
   },
   parser: "@typescript-eslint/parser",
   plugins: ["@typescript-eslint", "prettier", "react"],

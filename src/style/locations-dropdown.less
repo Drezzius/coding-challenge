@@ -1,0 +1,40 @@
+@import "./global.less";
+.inputfield {
+  &--start,
+  &--stop {
+    position: relative;
+  }
+}
+
+.locations-dropdown {
+  position: absolute;
+  top: 20px;
+  left: -55px;
+  width: 255px;
+  outline: none;
+  background-color: white;
+  border: 1px solid @color-vvs-light-grey;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 20px 40px;
+  z-index: 10;
+
+  .location-option {
+    border-bottom: 1px solid @color-vvs-light-grey;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 65px;
+
+    .disassembled-name {
+      .copy-2();
+      line-height: 1.25rem;
+      font-size: 0.875rem;
+    }
+    .parent-name {
+      .copy-2();
+      line-height: 1rem;
+      color: @color-vvs-grey;
+    }
+  }
+}

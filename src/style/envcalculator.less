@@ -16,11 +16,47 @@
 
     &-inner {
       padding: 30px 20px 20px;
+      form {
+        padding: 20px 0 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-      input {
-        width: 100%;
-        border: none;
-        border-bottom: 1px solid grey;
+        .inputicons {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .line-route {
+            height: 29px;
+            transform: rotate(1.08deg);
+            border-right: dotted 1px #979797;
+          }
+        }
+
+        .inputfields {
+          display: flex;
+          flex-direction: column;
+          gap: 25px;
+          width: 100%;
+          padding: 0 10px;
+        }
+        input {
+          .copy-2();
+          line-height: 1.25rem;
+          width: 100%;
+          border: none;
+          border-bottom: 1px solid @color-vvs-light-grey;
+          outline: none;
+
+          &::placeholder {
+            color: @color-vvs-grey;
+          }
+        }
+
+        .button {
+          .button();
+        }
       }
     }
 
@@ -30,14 +66,14 @@
     }
     &--info {
       .copy-2();
+      line-height: 1.25rem;
     }
     &--button {
       .copy-2();
+      .button();
       font-size: 0.875rem;
       width: 100%;
       height: 44px;
-      cursor: pointer;
-      border: none;
       color: #fff;
       border-radius: 4px;
       background-color: @color-vvs-orange;
