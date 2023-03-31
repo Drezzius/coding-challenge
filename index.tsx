@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./src/components/App";
-import "./styles.less";
+import "./src/style/reset.less";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+(ReactDOM as any).createRoot(document.getElementById("root")).render(<App />);
