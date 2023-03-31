@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import IconPoi from "../../resources/IconPoi";
 import IconCurrentLocation from "../../resources/IconCurrentLocation";
 import IconStop from "../../resources/IconStop";
@@ -25,6 +25,7 @@ const Select = ({
   setSelectedLocation,
 }: SelectProps) => {
   const [showDropDown, setShowDropDown] = useState(false);
+  const optionRef = useRef(null);
 
   const getIconType = (type: string) => {
     switch (type) {
@@ -38,6 +39,7 @@ const Select = ({
         return <IconLocation />;
     }
   };
+
   const selectOptions = (
     <div key={0}>
       <div className="location-option">
@@ -53,6 +55,7 @@ const Select = ({
               <div
                 className="location-option"
                 key={option.id}
+                ref={optionRef}
                 onClick={() => {
                   setLocation(option.name);
                   setSelectedLocation(option);
@@ -82,7 +85,7 @@ const Select = ({
         onBlur={() => {
           setTimeout(() => {
             setShowDropDown(false);
-          }, 100);
+          }, 200);
         }}
       />
       {showDropDown && (
