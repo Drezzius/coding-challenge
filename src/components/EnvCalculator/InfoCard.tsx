@@ -1,16 +1,22 @@
 import React from "react";
-import IconCar from "../../resources/IconCar";
 import "../../style/infocard.less";
 
-const InfoCard = () => {
+interface Infocard {
+  co2?: string;
+  icon?: React.ReactNode;
+  title?: string;
+  subtext?: string;
+}
+
+const InfoCard = ({ co2, icon, title, subtext }: Infocard) => {
   return (
     <div className="infocard">
       <div className="inner">
         <p className="title">
-          <IconCar /> Auto
+          {icon} {title}
         </p>
-        <p className="maintext">2.032 kg</p>
-        <p className="subtext">CO2 / Jahr</p>
+        <p className="maintext">{co2}</p>
+        <p className="subtext">{subtext}</p>
       </div>
     </div>
   );

@@ -2,21 +2,12 @@ import React, { useState } from "react";
 import IconDestination from "../../resources/IconDestination";
 import IconStart from "../../resources/IconStart";
 import IconSwitch from "../../resources/IconSwitch";
+import useSearchLocations from "../../utils/useSearchLocations";
 import Select from "./Select";
+import { Location } from "../../types/types";
 
-type Location = {
-  id: string;
-  name: string;
-  type: "stop" | "start" | "poi" | "suburb" | null;
-  disassembledName: string;
-  parent: {
-    name: string;
-  };
-};
 interface StopSelectProps {
   startLocation: string;
-  foundStartLocations: Location[];
-  foundStopLocations: Location[];
   stopLocation: string;
   handleSubmit: (start: Location, stop: Location) => Promise<void>;
   setStartLocation: (val: string) => void;
@@ -25,8 +16,6 @@ interface StopSelectProps {
 
 const StopSelect = ({
   startLocation,
-  foundStartLocations = [],
-  foundStopLocations = [],
   stopLocation,
   setStartLocation,
   setStopLocation,
@@ -50,6 +39,10 @@ const StopSelect = ({
       name: "",
     },
   });
+
+  const foundStartLocations = useSearchLocations(startLocation);
+  const foundStopLocations = useSearchLocations(stopLocation);
+
   return (
     <div className="stopselect">
       <div className="stopselect-inner">
@@ -67,7 +60,6 @@ const StopSelect = ({
             <div className="inputfield--start">
               <Select
                 name="startLocation"
-                selectedLocation={selectedStart}
                 setSelectedLocation={setSelectedStart}
                 options={foundStartLocations}
                 location={startLocation}
@@ -78,7 +70,6 @@ const StopSelect = ({
             <div className="inputfield--stop">
               <Select
                 name="stopLocation"
-                selectedLocation={selectedStop}
                 setSelectedLocation={setSelectedStop}
                 options={foundStopLocations}
                 location={stopLocation}

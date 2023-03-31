@@ -5,23 +5,14 @@ import IconStop from "../../resources/IconStop";
 import "../../style/locations-dropdown.less";
 import IconStart from "../../resources/IconStart";
 import IconLocation from "../../resources/IconLocation";
+import { Location } from "../../types/types";
 
-type Location = {
-  id: string;
-  name: string;
-  type: "stop" | "start" | "poi" | "suburb" | null;
-  disassembledName: string;
-  parent: {
-    name: string;
-  };
-};
 interface SelectProps {
   name: string;
   placeHolder: string;
   options: Location[];
   location: string;
   setLocation: (val: string) => void;
-  selectedLocation: Location;
   setSelectedLocation: (val: Location) => void;
 }
 
@@ -31,11 +22,10 @@ const Select = ({
   options,
   location,
   setLocation,
-  selectedLocation,
   setSelectedLocation,
 }: SelectProps) => {
   const [showDropDown, setShowDropDown] = useState(false);
-  console.log(options);
+
   const getIconType = (type: string) => {
     switch (type) {
       case "stop":
@@ -64,6 +54,7 @@ const Select = ({
                 className="location-option"
                 key={option.id}
                 onClick={() => {
+                  setLocation(option.name);
                   setSelectedLocation(option);
                   setShowDropDown(false);
                 }}
@@ -83,7 +74,7 @@ const Select = ({
     <>
       <input
         type="text"
-        value={selectedLocation ? selectedLocation.name : location}
+        value={location}
         name={name}
         placeholder={placeHolder}
         onChange={(e) => setLocation(e.target.value)}

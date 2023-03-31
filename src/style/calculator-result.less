@@ -1,0 +1,78 @@
+@import "./global.less";
+
+.calculator-result {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+
+  .distance {
+    width: 550px;
+    height: 70px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-bottom: 35px;
+
+    div {
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 50%;
+
+      span {
+        .copy-2();
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+      }
+    }
+
+    div:first-child {
+      position: relative;
+      background-color: white;
+    }
+
+    div:last-child {
+      background-color: @color-vvs-orange;
+
+      &:before {
+        content: "";
+        position: absolute;
+        background-color: @color-vvs-orange;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 70px 0 0 50px;
+        border-color: transparent transparent transparent white;
+      }
+
+      span {
+        color: white;
+      }
+    }
+  }
+
+  .infocards {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 40px;
+
+    span {
+      .title();
+      font-size: 1.25rem;
+      line-height: 1.5rem;
+    }
+
+    &--details {
+      display: flex;
+      gap: 15px;
+      margin-top: 25px;
+    }
+  }
+}
