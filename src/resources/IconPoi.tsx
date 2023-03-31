@@ -1,6 +1,6 @@
 import React from "react";
 
-const IconPoi = (props) => (
+const IconPoi = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     width="24"
     height="24"

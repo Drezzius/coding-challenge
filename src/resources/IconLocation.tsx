@@ -1,6 +1,6 @@
 import React from "react";
 
-const IconLocation = (props) => (
+const IconLocation = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     width="24"
     height="24"

@@ -1,6 +1,6 @@
 import React from "react";
 
-const IconCurrentLocation = (props) => (
+const IconCurrentLocation = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     width="24"
     height="24"

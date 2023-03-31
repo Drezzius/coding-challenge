@@ -1,7 +1,6 @@
 import React from "react";
 
-// TODO: Type up svgs
-const IconCar = (props) => (
+const IconCar = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     width="24"
     height="24"
